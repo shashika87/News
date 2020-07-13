@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* global __DEV__ */
 
-import React, {Component, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -11,57 +11,80 @@ import {
   StyleSheet,
   Platform,
   Dimensions,
+  SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {fetchNews, fetchNewsSuccess} from '../actions/newsActions';
+import {
+  fetchNews,
+  fetchNewsSuccess,
+  articleFavoriteGet,
+} from '../actions/newsActions';
 import ImageComponent from './Component/ImageComponent';
+import ListIcon from './Component/ListIcon';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const Home = (props) => {
+  const [listView, setListView] = useState(true);
   useEffect(() => {
     //if (!props.test) {
-      props.dispatch(fetchNews(''));
+    props.dispatch(fetchNews(''));
     //}
   }, []);
-  const updateArticles = (article) => {
-    let articles = props.articles;
-    let selectedArticle = articles.find((e) => e.title === article.title);
-    selectedArticle.favorite = article.favorite;
-    props.dispatch(fetchNewsSuccess(articles));
-  };
+
+  const updateArticles = (article) => {};
   Dimensions.addEventListener('change', () => {
     props.dispatch(fetchNewsSuccess(props.articles));
   });
 
   const {error, loading, articles} = props;
 
+  props.navigation.setOptions({
+    headerRight: () => (
+      <View flexDirection="row">
+        <TouchableOpacity
+          style={{padding: 10}}
+          onPress={() => {
+            setListView(!listView);
+          }}>
+          <View style={{transform: [{scale: 0.9}]}}>
+            <ListIcon listView={!listView} />
+          </View>
+        </TouchableOpacity>
+      </View>
+    ),
+  });
   return (
-    <View style={styles.container}>
-      {loading ? (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" />
-          <Text style={styles.loadingText}>Please Wait...</Text>
-        </View>
-      ) : (
-        <View style={{flex: 1}}>
-          <FlatList
-            keyExtractor={(item) => item.id}
-            key={'key_flatlist'}
-            numColumns={3}
-            data={articles}
-            renderItem={({item}) => (
-              <ImageComponent
-                article={item}
-                updateArticles={updateArticles}
-                navigation={props.navigation}
-              />
-            )}
-          />
-        </View>
-      )}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        {loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" />
+            <Text style={styles.loadingText}>Please Wait...</Text>
+          </View>
+        ) : (
+          <View style={{flex: 1}}>
+            <FlatList
+              keyExtractor={(item) => item.id}
+              key={'key_flatlist' + Math.round(new Date().getTime() / 1000)}
+              numColumns={listView === true ? 1 : 2}
+              data={articles}
+              renderItem={({item}) => (
+                <ImageComponent
+                  ref={'imageComponent' + item.title}
+                  key={'item' + item.title}
+                  article={item}
+                  updateArticles={updateArticles}
+                  navigation={props.navigation}
+                />
+              )}
+            />
+          </View>
+        )}
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -138,7 +161,6 @@ const mapStateToProps = (state) => ({
   articles: state.news.articles,
   loading: state.news.loading,
   error: state.news.error,
-  favorites: state.news.favorites,
 });
 
 export default connect(mapStateToProps)(Home);

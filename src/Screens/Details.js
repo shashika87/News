@@ -50,7 +50,7 @@ const Details = (props) => {
       headerRight: () => (
         <View flexDirection="row">
           <TouchableOpacity
-            style={{padding: 10}}
+            style={{padding: 10,}}
             onPress={() => {
               if (selectedArticle.favorite == null) {
                 selectedArticle.favorite = true;
@@ -62,10 +62,15 @@ const Details = (props) => {
               props.dispatch(articleFavoriteGet(selectedArticle));
               updateArticles(selectedArticle);
             }}>
-            <ThumbsupIcon fill={props.favorite ? '#157EFB' : 'none'} />
+            <View style={{transform: [{scale: 0.8}]}}>
+            <ThumbsupIcon
+              fill={props.favorite ? '#157EFB' : 'none'}
+              style={{width: 25, height: 25}}
+            />
+            </View>
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: 10}}
+            style={{padding: 5,marginTop:5}}
             onPress={() => {
               if (selectedArticle.favorite == null) {
                 selectedArticle.favorite = false;
@@ -77,8 +82,9 @@ const Details = (props) => {
               props.dispatch(articleFavoriteGet(selectedArticle));
               updateArticles(selectedArticle);
             }}>
-            <View style={{transform: [{rotate: '-180deg'}]}}>
+            <View style={{transform: [{rotate: '-180deg'}, {scale: 0.8}]}}>
               <ThumbsupIcon
+                style={{width: 25, height: 25}}
                 fill={
                   props.favorite == null || props.favorite == true
                     ? 'none'
