@@ -39,9 +39,9 @@ I spent around 4 hours of time in testing and covered all unit testing
 Challenging part of application was to manage state of each Image Component without refreshing entire screen while favorite and unfavorite.
 
 ###### Bonus point
-App is in react native.
-Completed assignment using functional component
-UI components have usable animations
+- App is in react native.
+- Completed assignment using functional component
+- UI components have usable animations
 
 
 
