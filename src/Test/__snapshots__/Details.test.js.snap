@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details should render Details 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "width": "100%",
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "column",
+            "height": 160,
+            "margin": 5,
+            "position": "relative",
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://i.guim.co.uk/img/media/584082b5964a99b272e0373fff2728800437f7ba/795_224_3120_1872/master/3120.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1a60744b7c5f174356993242ad0317bf",
+            }
+          }
+          style={
+            Object {
+              "borderColor": "lightgray",
+              "borderWidth": 1,
+              "height": "100%",
+              "resizeMode": "cover",
+              "width": "100%",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "column",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 10,
+              }
+            }
+          >
+            Kelly Preston, actor and wife of John Travolta, dies aged 57 from breast cancer - The Guardian
+            (Guardian staff reporter)
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "margin": 10,
+              }
+            }
+          >
+            Travolta says ‘Kelly’s love and life will always be remembered’ after revealing actor’s death following two-year illness
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "margin": 10,
+              }
+            }
+          >
+            Kelly Preston, the actor wife of John Travolta who appeared in movies such as Jerry Maguire and Gotti, has died from breast cancer aged 57.
+Travolta said she had been sick for two years, and thanked… [+483 chars]
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "alignContent": "center",
+        "backgroundColor": "lightgray",
+        "bottom": 0,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "left": 0,
+        "padding": 20,
+        "position": "absolute",
+        "right": 0,
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 20,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 10,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 10,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "-90deg",
+              },
+            ],
+            "width": 0,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 20,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 10,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 10,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "90deg",
+              },
+            ],
+            "width": 0,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
