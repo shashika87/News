@@ -1,6 +1,7 @@
 # News
 app allows user to view news in Grid and ListView and user can favorite and unfavorite the news.
-###### app installatiomn
+###### app installation
+  - App is built in react native version 0.63.0
   - project folder run npm install
   - cd ios and pod install
   - cd .. go back to project folder
