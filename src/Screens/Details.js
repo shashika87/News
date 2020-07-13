@@ -50,7 +50,7 @@ const Details = (props) => {
       headerRight: () => (
         <View flexDirection="row">
           <TouchableOpacity
-            style={{padding: 10,}}
+            style={{padding: 10}}
             onPress={() => {
               if (selectedArticle.favorite == null) {
                 selectedArticle.favorite = true;
@@ -63,14 +63,14 @@ const Details = (props) => {
               updateArticles(selectedArticle);
             }}>
             <View style={{transform: [{scale: 0.8}]}}>
-            <ThumbsupIcon
-              fill={props.favorite ? '#157EFB' : 'none'}
-              style={{width: 25, height: 25}}
-            />
+              <ThumbsupIcon
+                fill={props.favorite ? '#157EFB' : 'none'}
+                style={{width: 25, height: 25}}
+              />
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: 5,marginTop:5}}
+            style={{padding: 5, marginTop: 5}}
             onPress={() => {
               if (selectedArticle.favorite == null) {
                 selectedArticle.favorite = false;
@@ -100,20 +100,17 @@ const Details = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <View style={styles.imageHolder}>
+        <View>
           {selectedArticle.urlToImage == null ? (
             <View
-              style={
-                ({
-                  flex: 1,
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  alignItems: 'center',
-                  height: 180,
-                  width: 300,
-                },
-                styles.image)
-              }>
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                textAlign: 'center',
+                alignItems: 'center',
+                height: 180,
+                width: 300,
+              }}>
               <Text
                 style={{
                   marginTop: 50,
@@ -128,7 +125,7 @@ const Details = (props) => {
               source={{uri: selectedArticle.urlToImage}}
             />
           )}
-          <View style={{flexDirection: 'column'}}>
+          <View style={{flex: 1, flexDirection: 'column'}}>
             <Text style={{fontSize: 20, margin: 10}}>
               {selectedArticle.title}
               {selectedArticle.author ? '(' + selectedArticle.author + ')' : ''}
@@ -229,9 +226,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#00BCD4',
   },
   image: {
-    height: '100%',
+    height: 180,
     width: '100%',
-    resizeMode: 'cover',
     borderWidth: 1.0,
     borderColor: 'lightgray',
   },
@@ -239,7 +235,6 @@ const styles = StyleSheet.create({
     margin: 5,
     height: 160,
     flex: 1,
-    position: 'relative',
     flexDirection: 'column',
     alignItems: 'center',
   },
